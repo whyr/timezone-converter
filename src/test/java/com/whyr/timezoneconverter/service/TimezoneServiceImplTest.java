@@ -12,14 +12,14 @@ class TimezoneServiceImplTest {
     void timezoneConvertTest() {
 
         String date = "2021-07-10";
-        String time = "08:30:00";
+        String time = "08:30";
         String timezoneFrom = "Europe/Madrid";
         String timezoneTo = "America/New_York";
 
         TimezoneRsDto timezoneRsDto = timezoneService.convertTimezone(date, time, timezoneFrom, timezoneTo);
 
         Assertions.assertEquals("2021-07-10", timezoneRsDto.getDate());
-        Assertions.assertEquals("02:30:00", timezoneRsDto.getTime());
+        Assertions.assertEquals("02:30", timezoneRsDto.getTime());
         Assertions.assertEquals("America/New_York", timezoneRsDto.getTimezone());
 
     }

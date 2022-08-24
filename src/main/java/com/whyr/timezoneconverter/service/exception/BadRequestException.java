@@ -1,4 +1,4 @@
-package com.whyr.timezoneconverter.service.exceptions;
+package com.whyr.timezoneconverter.service.exception;
 
 import org.springframework.http.HttpStatus;
 

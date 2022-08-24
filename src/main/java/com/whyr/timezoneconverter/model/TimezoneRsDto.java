@@ -1,22 +1,20 @@
 package com.whyr.timezoneconverter.model;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@ApiModel(description = "Timezone Response")
 public class TimezoneRsDto {
 
-    @ApiModelProperty(example = "2021-10-07")
+    @Schema(example = "2021-10-07")
     private String date;
 
-    @ApiModelProperty(example = "02:30")
+    @Schema(example = "02:30")
     private String time;
 
-    @ApiModelProperty(example = "America/New_York")
+    @Schema(example = "America/New_York")
     private String timezone;
 
 }

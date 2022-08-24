@@ -1,7 +1,7 @@
 package com.whyr.timezoneconverter.service;
 
 import com.whyr.timezoneconverter.model.TimezoneRsDto;
-import com.whyr.timezoneconverter.service.exceptions.BadRequestException;
+import com.whyr.timezoneconverter.service.exception.BadRequestException;
 import org.springframework.stereotype.Service;
 
 import java.time.DateTimeException;

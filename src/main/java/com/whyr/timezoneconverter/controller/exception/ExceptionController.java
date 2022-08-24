@@ -1,6 +1,7 @@
 package com.whyr.timezoneconverter.controller.exception;
 
-import com.whyr.timezoneconverter.service.exceptions.ServiceException;
+import com.whyr.timezoneconverter.model.exception.ApiExceptionDto;
+import com.whyr.timezoneconverter.service.exception.ServiceException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -9,11 +10,16 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class ExceptionController extends ResponseEntityExceptionHandler {
 
-	@ExceptionHandler(value = {ServiceException.class})
-	private ResponseEntity<String> returnException(ServiceException ex) {
+    @ExceptionHandler(value = {ServiceException.class})
+    private ResponseEntity<ApiExceptionDto> returnException(ServiceException ex) {
 
-		return new ResponseEntity<>(ex.getErrorMessage(), ex.getHttpStatus());
-	}
+        ApiExceptionDto apiExceptionDto = new ApiExceptionDto();
+        apiExceptionDto.setStatusCode(ex.getHttpStatus().value());
+        apiExceptionDto.setStatusMessage(ex.getHttpStatus().getReasonPhrase());
+        apiExceptionDto.setErrorMessage(ex.getMessage());
+
+        return new ResponseEntity<>(apiExceptionDto, ex.getHttpStatus());
+    }
 
 
 }
